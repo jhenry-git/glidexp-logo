@@ -1,182 +1,96 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>GlideX — Rent cars with ease</title>
-  <style>
-    :root{
-      --accent: #0ea5a4;
-      --accent-2: #06b6d4;
-      --bg: #ffffff;
-      --muted: #6b7280;
-      --card: #f8fafc;
-    }
-    *{box-sizing:border-box}
-    body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; color:#0f172a; background:linear-gradient(180deg,#ffffff,#f7fbfb); -webkit-font-smoothing:antialiased;}
-    .container{max-width:1100px; margin:0 auto; padding:24px;}
-    header{display:flex; align-items:center; justify-content:space-between; padding:18px 0;}
-    .logo{display:flex; align-items:center; gap:12px;}
-    .logo img{height:42px;}
-    .brand{font-weight:700; letter-spacing:0.2px;}
-    nav{display:flex; gap:16px; align-items:center;}
-    a.navlink{color:inherit; text-decoration:none; font-weight:600; padding:8px 12px; border-radius:8px;}
-    a.navlink:hover{background:rgba(14,165,164,0.06);}
-    .hero{display:flex; gap:36px; align-items:center; padding:32px 0;}
-    .hero-left{flex:1; max-width:640px;}
-    h1{font-size:38px; margin:0 0 10px; line-height:1.03;}
-    p.lead{color:var(--muted); margin:0 0 18px; font-size:16px;}
-    .cta{display:flex; gap:12px; align-items:center;}
-    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:12px; font-weight:700; text-decoration:none; box-shadow:0 10px 30px rgba(2,6,23,0.06);}
-    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:white; border:0;}
-    .btn-outline{background:white; border:1px solid #e6f2f2; color:#0b5564;}
-    .phone-mock{width:320px; min-height:600px; border-radius:28px; box-shadow:0 16px 48px rgba(2,6,23,0.08); padding:16px; background:linear-gradient(180deg,#ffffff,#f2fbfb); display:flex; flex-direction:column;}
-    .phone-top{height:28px; display:flex; justify-content:center; align-items:center; gap:6px;}
-    .phone-screen{flex:1; border-radius:18px; overflow:hidden; background:linear-gradient(180deg,#fff,#fbffff); padding:14px;}
-    .features{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; margin-top:26px;}
-    .feature{background:var(--card); padding:18px; border-radius:12px; box-shadow:inset 0 -1px 0 rgba(14,165,164,0.02);}
-    .feature h4{margin:0 0 8px;}
-    footer{border-top:1px solid #eef6f6; margin-top:36px; padding:22px 0; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;}
-    .app-links{display:flex; gap:10px; align-items:center; flex-wrap:wrap;}
-    @media (max-width:880px){
-      .hero{flex-direction:column-reverse; align-items:stretch;}
-      .phone-mock{width:100%; min-height:420px;}
-    }
-    .logo img{transition:transform .25s ease;}
-    .logo img:hover{transform:translateY(-2px) scale(1.02);}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlideX – Drive Your Way</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        header img {
+            height: 50px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        /* Buttons */
+        .buttons a {
+            display: inline-block;
+            background-color: white;
+            color: #333;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .buttons a:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
+
     <header>
-      <div class="logo">
-        <img src="logo.png" alt="GlideX logo" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2248%22 height=%2248%22 viewBox=%220 0 48 48%22><rect rx=%228%22 width=%2248%22 height=%2248%22 fill=%22%2306b6d4%22/><text x=%2224%22 y=%2228%22 font-size=%2216%22 font-family=%22Arial%22 font-weight=%22700%22 fill=%22white%22 text-anchor=%22middle%22>GX</text></svg>';" />
-        <div class="brand">GlideX</div>
-      </div>
-      <nav>
-        <a class="navlink" href="#features">Features</a>
-        <a class="navlink" href="#how">How it works</a>
-        <a class="navlink" href="#download">Download</a>
-        <a class="navlink" href="#contact">Contact</a>
-      </nav>
+        <img src="logo.png" alt="GlideX Logo">
     </header>
 
-    <main class="hero" role="main">
-      <div class="hero-left">
-        <h1>Rent cars in minutes — list your car, earn more</h1>
-        <p class="lead">GlideX connects car owners and renters with a smooth booking flow, secure payments, and easy tracking. Built for Kenya — and travelers worldwide.</p>
-        <div class="cta">
-          <a class="btn btn-primary" href="#" id="cta-book">Book a car<span style="opacity:.85">→</span></a>
-          <a class="btn btn-outline" href="#download">Download the app</a>
+    <section class="hero">
+        <h1>Drive Your Way with GlideX</h1>
+        <p>GlideX is the easiest way to rent cars in Kenya. Whether you’re a traveler or a local, we connect you to trusted car owners for a smooth, safe, and affordable ride.</p>
+        
+        <div class="buttons">
+            <a href="https://play.google.com/store/apps/details?id=YOUR_APP_ID" target="_blank">Get it on Google Play</a>
+            <a href="https://apps.apple.com/app/idYOUR_APP_ID" target="_blank">Download on App Store</a>
         </div>
-
-        <section id="features" class="features" aria-labelledby="features-heading" style="margin-top:22px;">
-          <div class="feature"><h4>Instant bookings</h4><p style="margin:0;color:var(--muted)">Full payment upfront, fast confirmations.</p></div>
-          <div class="feature"><h4>Flexible pricing</h4><p style="margin:0;color:var(--muted)">Owners set base prices and discounts.</p></div>
-          <div class="feature"><h4>Secure payments</h4><p style="margin:0;color:var(--muted)">M-Pesa, bank transfers, PayPal supported.</p></div>
-          <div class="feature"><h4>Track & manage</h4><p style="margin:0;color:var(--muted)">In-app messaging, tracking, and calendars.</p></div>
-        </section>
-      </div>
-
-      <aside class="phone-mock" aria-label="App preview">
-        <div class="phone-top"><div style="width:44px;height:6px;background:#e6f3f3;border-radius:8px"></div></div>
-        <div class="phone-screen">
-          <canvas id="previewCanvas" width="292" height="520" style="width:100%; height:100%; display:block; border-radius:12px;"></canvas>
-        </div>
-        <div style="margin-top:10px; display:flex; gap:10px; justify-content:center;">
-          <a href="#" class="btn btn-outline" style="padding:8px 12px; font-size:13px;">Host</a>
-          <a href="#" class="btn btn-outline" style="padding:8px 12px; font-size:13px;">Guest</a>
-        </div>
-      </aside>
-    </main>
-
-    <section id="how" style="margin-top:18px;">
-      <h3 style="margin:0 0 10px;">How it works</h3>
-      <ol style="color:var(--muted)">
-        <li>Sign up as a Host or Guest and upload required documents.</li>
-        <li>Search or list a car with flexible pricing and availability.</li>
-        <li>Book with full upfront payment; keep track of bookings.</li>
-      </ol>
     </section>
 
     <footer>
-      <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
-        <div style="font-weight:700">GlideX</div>
-        <div style="color:var(--muted)">© GlideX — All rights reserved</div>
-      </div>
-      <div class="app-links" id="download">
-        <a class="btn" href="#" title="Download on the App Store" style="padding:8px 12px; background:#111;color:white;border-radius:10px; font-weight:700;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16.365 1.43c0 1.03-.384 2.01-1.12 2.75-.743.739-1.858 1.23-2.86 1.03.089-.747.404-1.56.967-2.23.65-.78 1.64-1.31 2.813-1.55.03.004.059.01.1.01z" fill="white"/><path d="M20.4 15.9c-.21.47-.45.98-.72 1.52-1.12 2.28-2.45 4.56-4.6 4.6-1.1.02-1.5-.57-2.8-.57-1.3 0-1.8.55-2.78.57-2.18.03-3.58-2.34-4.74-4.64-2.9-5.06-1-.13 1.95-7.73 1.7-3.07 3.78-4.01 5.14-4.01 1.03 0 1.98.69 2.83.69.86 0 1.84-.82 2.98-.69 1.03.12 2.88 0 4.48 3.72.16.35.34.75.53 1.17z" fill="white"/></svg>
-          <span style="margin-left:8px; font-size:13px;">App Store</span>
-        </a>
-        <a class="btn" href="#" title="Get it on Google Play" style="padding:8px 12px; border-radius:10px; font-weight:700;">
-          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M3.6 1.9 14.8 12 3.6 22.1c-.4.4-.9.5-1.5.3-.5-.2-.9-.7-.9-1.3V3.9c0-.6.3-1.1.9-1.3.6-.2 1.1-.1 1.5.3z" fill="#34A853"/><path d="M20.4 11.4 5 2.5c-.2-.1-.3-.1-.5-.1-.1 0-.3 0-.4.1l10.4 9.9 5-1z" fill="#4285F4"/><path d="M20.4 12.6 5 21.5c-.2.1-.3.1-.5.1-.1 0-.3 0-.4-.1l15.8-8.9z" fill="#FBBC05"/><path d="M21.8 12 20.4 11.4 5 21.5l15.8-8.9z" fill="#EA4335"/></svg>
-          <span style="margin-left:8px; font-size:13px;">Google Play</span>
-        </a>
-      </div>
+        &copy; 2025 GlideX. All rights reserved.
     </footer>
-  </div>
 
-  <script>
-    function drawPreview() {
-      const c = document.getElementById('previewCanvas');
-      if (!c) return;
-      const ctx = c.getContext('2d');
-      const w = c.width, h = c.height;
-      const g = ctx.createLinearGradient(0,0,w,h);
-      g.addColorStop(0, '#eefefd');
-      g.addColorStop(1, '#ffffff');
-      ctx.fillStyle = g;
-      ctx.fillRect(0,0,w,h);
-      ctx.fillStyle = '#0ea5a4';
-      ctx.fillRect(12,12,w-24,54);
-      ctx.fillStyle = 'white';
-      ctx.font = '700 16px Arial';
-      ctx.fillText('GlideX', 28, 44);
-      const cardW = w - 40;
-      for (let i=0;i<3;i++) {
-        const y = 84 + i*118;
-        ctx.fillStyle = 'white';
-        roundRect(ctx, 12, y, cardW, 96, 10, true, false);
-        ctx.fillStyle = '#0f172a';
-        ctx.font = '600 14px Arial';
-        ctx.fillText(['Toyota Corolla','Nissan Note','Mazda CX-5'][i] || 'Car Model', 26, y+28);
-        ctx.font = '13px Arial';
-        ctx.fillStyle = '#6b7280';
-        ctx.fillText('KES '+(2500 + i*1200)+'/day', 26, y+52);
-        ctx.fillStyle = '#06b6d4';
-        roundRect(ctx, w-110, y+20, 78, 28, 8, true, false);
-        ctx.fillStyle = 'white';
-        ctx.font = '700 12px Arial';
-        ctx.fillText('Book', w-86, y+40);
-      }
-    }
-    function roundRect(ctx, x, y, width, height, radius, fill, stroke) {
-      if (typeof stroke == 'undefined') stroke = true;
-      if (typeof radius === 'undefined') radius = 5;
-      if (typeof radius === 'number') {
-        radius = {tl: radius, tr: radius, br: radius, bl: radius};
-      } else {
-        var defaultRadius = {tl: 0, tr: 0, br: 0, bl: 0};
-        for (var side in defaultRadius) {
-          radius[side] = radius[side] || defaultRadius[side];
-        }
-      }
-      ctx.beginPath();
-      ctx.moveTo(x + radius.tl, y);
-      ctx.lineTo(x + width - radius.tr, y);
-      ctx.quadraticCurveTo(x + width, y, x + width, y + radius.tr);
-      ctx.lineTo(x + width, y + height - radius.br);
-      ctx.quadraticCurveTo(x + width, y + height, x + width - radius.br, y + height);
-      ctx.lineTo(x + radius.bl, y + height);
-      ctx.quadraticCurveTo(x, y + height, x, y + height - radius.bl);
-      ctx.lineTo(x, y + radius.tl);
-      ctx.quadraticCurveTo(x, y, x + radius.tl, y);
-      ctx.closePath();
-      if (fill) ctx.fill();
-      if (stroke) ctx.stroke();
-    }
-    window.addEventListener('load', drawPreview);
-  </script>
 </body>
 </html>
